@@ -10,23 +10,24 @@ from aima.csp import backtracking_search, NQueensCSP, min_conflicts, mrv, \
 def secondsToStr(t):
     return str(timedelta(seconds=t))
 
+
 def now():
     return secondsToStr(time())
-    
+
 
 # 1. Set up the problem and starting time
 n = 5
 
-print("\nStarting at at  "+now()[12:20])
-print("problem with n =",n)
+print("\nStarting at at  " + now()[12:20])
+print("problem with n =", n)
 start = time()
 
 problem = NQueensCSP(n)
 
 # 2. Solve the problem
 solution = backtracking_search(problem)
-#solution = AC3(problem); 
-#solution = min_conflicts(problem)
+# solution = AC3(problem);
+# solution = min_conflicts(problem)
 
 
 # 3. Print the results
@@ -44,11 +45,10 @@ elif problem.goal_test(solution):
     print("Solution:", solution)
 else:
     print("Failed - domains: " + str(problem.curr_domains))
-    #problem.display(problem.infer_assignment())
-
+    # problem.display(problem.infer_assignment())
 
 # 4. Print elapsed time
 
 end = time()
-elapsed = end-start
-print("\nElapsed time ",  secondsToStr(elapsed)[0:15])
+elapsed = end - start
+print("\nElapsed time ", secondsToStr(elapsed)[0:15])
